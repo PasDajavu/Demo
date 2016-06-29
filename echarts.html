@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts/echarts.min.js"></script>
+</head>
+<body>
+    <div style="overflow: auto;">
+    	<!--数值轴和数值轴-->
+    	<div id="valueAndValue" style="height: 300px"></div>
+    	
+    	<!--数值轴和时间轴-->
+    	<div id="valueAndTime" style="height: 300px"></div>
+    	
+    </div>
+    <script type="text/javascript">
+    	/**（1）、数值轴和数值轴------start-------------------------------*/
+        var myChart = echarts.init(document.getElementById('valueAndValue'));
+        var data = new Array();
+        for(var i = 0;i<31;i++){
+        	data[i] = new Array();
+        	data[i][0] = i;
+        	data[i][1] = (Math.random()*100).toFixed(0);
+        }
+        var options = {
+        	title:{
+        		text:'数值轴和数值轴'
+        	},
+        	tooltip:{
+        		trigger:'axis'
+        	},
+        	xAxis:{
+        		type:'value',
+        	},
+        	yAxis:{
+        		type:'value',
+        	},
+        	dataZoom: [
+		        {
+		            type: 'slider',
+		            show: true,
+		            xAxisIndex: [0],
+		            start:0,
+		            end: 35
+		        },
+		        {
+		            type: 'inside',
+		            start: 0,
+		            end: 35
+		        }
+		    ],
+        	series:[{
+        		name:'seriesName',
+        		type:'line',
+        		data:data,
+        	}]
+        }
+        myChart.setOption(options)
+        /**数值轴和数值轴------end-------------------------------*/
+       
+       
+      	/**（2）、数值轴和时间轴------start-------------------------------*/
+        var myChart = echarts.init(document.getElementById('valueAndTime'));
+        var data = new Array();
+        var dateList = new Array();
+        var baseDate = +new Date(2016,3,12);
+        var oneDay = 24 * 3600 * 1000;
+        for(var i = 0;i<31;i++){
+        	data[i] = (Math.random()*100).toFixed(0);
+        	
+        	var nowDate = new Date(baseDate += oneDay);
+        	dateList[i] = [nowDate.getMonth(),nowDate.getDate()].join('-')
+        }
+        console.log(dateList)
+        console.log(data)
+        
+        var options = {
+        	title:{
+        		text:'数值轴和时间轴'
+        	},
+        	tooltip:{
+        		trigger:'axis'
+        	},
+        	xAxis:{
+        		type:'category',
+        		boundaryGap : false,
+        		data:dateList,
+        	},
+        	yAxis:{
+        		type:'value',
+        	},
+        	grid:{
+        		left:'3%',
+        		right:'4%',
+        		containLabel:'true',
+        	},
+        	dataZoom: [
+		        {
+		            type: 'slider',
+		            show: true,
+		            xAxisIndex: [0],
+		            start:0,
+		            end: 35
+		        },
+		        {
+		            type: 'inside',
+		            start: 0,
+		            end: 35
+		        }
+		    ],
+        	series:[{
+        		name:'seriesName',
+        		type:'line',
+        		showAllSymbol:'true',
+        		data:data,
+        	}]
+        }
+        myChart.setOption(options)
+        /**数值轴和时间轴------end-------------------------------*/
+       
+       
+       
+        
+    </script>
+</body>
+</html>

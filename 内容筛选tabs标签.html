@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<title>内容筛选tabs标签</title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css"/>
+		<script src="jquery/jquery.min.js"></script>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		<script type="text/javascript">
+			angular.module('app',['ionic'])
+				.controller('myController',function($scope){
+					$scope.dataList = [
+						{checked:true,value:'女装'},
+						{checked:false,value:'男装'},
+						{checked:false,value:'鞋包'},
+						{checked:false,value:'内衣'},
+						{checked:false,value:'饰品'},
+						{checked:false,value:'运动'},
+						{checked:false,value:'美妆'},
+						{checked:false,value:'童装'},
+						{checked:false,value:'食品'},
+						{checked:false,value:'母婴'},
+						{checked:false,value:'百货'},
+						{checked:false,value:'汽车'},
+						{checked:false,value:'家电'},
+						{checked:false,value:'数码'},
+					]
+					
+					$scope.changeClick = function(res){
+						angular.forEach($scope.dataList,function(item){
+							item.checked = false;
+						})
+						res.checked = !res.checked;
+					}
+					
+					/**计算scroll的高度*/
+					$('.scrollContent').css({height:$(window).height()-$('#contentLabel').height()-44})
+					console.log()
+				})
+		</script>
+	</head>
+	<body ng-controller="myController">
+		<ion-header-bar class="bar-calm"></ion-header-bar>
+		<div id="contentLabel" style="display: -webkit-flex;margin-top: 44px;color: #656565;">
+			<ion-scroll has-bouncing="false" direction="x" scrollbar-x=false style="flex: auto;">
+				<ul class="contentLabel_ul">
+					<li ng-repeat="item in dataList track by $index" ng-click="changeClick(item)" ng-style="{color:item.checked?'#c21e1c':'#656565'}">{{item.value}}</li>
+				</ul>
+			</ion-scroll>
+			<div style="flex: none;width:50px;text-align: center;" ng-click="showAllLabel = !showAllLabel" ng-init="showAllLabel = false">
+				<i class="ion-chevron-down" style="line-height: 35px;font-size: 17px;"></i>
+			</div>
+		</div>
+		<ion-scroll id="scrollContentId" class="scrollContent" ng-show="showAllLabel" style="position: absolute;width: 100%;background-color: white;z-index: 999;">
+			<div style="margin: 10px 5%;">
+				<ul class="contentLabelAll_head_ul">
+					<li ng-repeat="item in dataList track by $index">{{item.value}}</li>
+				</ul>
+			</div>
+		</ion-scroll>
+		
+		<ion-scroll class="scrollContent">
+			<ion-list>
+				<ion-item ng-repeat="item in dataList track by $index">{{item.value}}</ion-item>
+			</ion-list>
+		</ion-scroll>
+		
+		<style type="text/css">
+			.contentLabel_ul{
+				display: -webkit-flex;
+				height: 35px;
+				line-height: 35px;
+				align-items: center;
+				text-align: center;
+			}
+			.contentLabel_ul li{
+				flex: none;
+				width: 50px;
+			}
+			
+			.contentLabelAll_head_ul{
+				display: -webkit-flex;
+				flex-wrap: wrap;
+				line-height: 50px;
+				align-items: center;
+				text-align: center;
+			}
+			.contentLabelAll_head_ul li{
+				flex: none;
+				width: 25%;
+			}
+			
+			#scrollContentId{
+				transition: opacity 0.5s;
+			}
+			
+			#scrollContentId.ng-hide{
+				opacity: 0;
+			}
+		</style>
+		
+	</body>
+</html>

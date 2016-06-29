@@ -1,0 +1,109 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title>菜鸟教程(runoob.com)</title>
+		<link href="ionic/release/css/ionic.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="materialize-css/css/materialize.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		<script src="materialize-css/js/materialize.js"></script>
+		<script type="text/javascript">
+			angular.module('ionicApp', ['ionic'])
+				.service('serviceData',function(){
+					var serviceData = new Array(30);
+					console.log(serviceData.length)
+					for(var i = 0;i<serviceData.length;i++){
+						serviceData[i] = "hello world";
+					}
+					
+					return serviceData;
+				})
+				.controller('testCtrl',function($scope,serviceData){
+					$scope.serviceDataList = serviceData;
+					console.log($scope.serviceDataList)
+				})
+		</script>
+		<style type="text/css">
+			.slider {
+			      height: 100%;
+			    }
+			    .slider-slide {
+			      padding-top: 80px;
+			      color: #000;
+			      background-color: #fff;
+			      text-align: center;
+			
+			      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+			      font-weight: 300;
+			    }
+			
+			    .blue {
+			      background-color: blue;
+			    }
+			
+			    .yellow {
+			      background-color: yellow;
+			    }
+			
+			    .pink {
+			      background-color: pink;
+			    }
+		</style>
+	</head>
+
+	<body ng-app="ionicApp" animation="slide-left-right-ios7">
+		<div ng-controller="testCtrl">
+	<!--<ion-content>
+		<ion-slide-box>
+			<ion-slide>
+				<div class="box blue">
+					<h1>BLUE</h1></div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box yellow">
+					<h1>YELLOW</h1></div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box pink">
+					<h1>PINK</h1></div>
+			</ion-slide>
+		</ion-slide-box>
+	</ion-content>-->
+	
+		<ion-slides options="options" slider="data.slider">
+			<ion-slide-page>
+				<div class="box blue">
+					<ion-content>
+					<ion-list>
+						<ion-item ng-repeat="item in serviceDataList track by $index">{{item}}</ion-item>
+					</ion-list>
+					</ion-content>
+				</div>
+			</ion-slide-page>
+			<ion-slide-page>
+				<div class="box yellow">
+					<ion-content>
+					<ion-list>
+						<ion-item ng-repeat="item in serviceDataList track by $index">{{item}}</ion-item>
+					</ion-list>
+					</ion-content>
+				</div>
+			</ion-slide-page>
+			<ion-slide-page>
+				<div class="box pink">
+					<ion-content>
+					<ion-list>
+						<ion-item ng-repeat="item in serviceDataList track by $index">{{item}}</ion-item>
+					</ion-list>
+					</ion-content>
+				</div>
+			</ion-slide-page>
+		</ion-slides>
+	
+</div>
+	
+	</body>
+
+</html>
