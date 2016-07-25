@@ -28,33 +28,39 @@
 		<script type="text/javascript">
 			angular.module('app',['ionic',"mobiscroll-datetime","mobiscroll-calendar"])
 				.controller('myController',function($scope){
+					$scope.settingff = {
+					    theme: 'android-holo-light',
+					    lang:'zh',
+					    animate:'pop',
+					};
 					
-						$scope.settingff = {
-						    theme: 'android-holo-light',
-						    lang:'zh',
-						    animate:'pop',
-						};
-						
-						$scope.settings = { 
-					        theme: 'mobiscroll',
-					        lang:'zh',
-					  	}	
-					  	
-					  	
-					  	$scope.calendar = [ 
-				            { d: new Date(2013, 10, 13), text: 'My Big Event' },
-				            { d: '12/25', text: 'Christmas' }
-				        ];
-				        $scope.eventText = '';
-				        // push an event to the calendar for today with the text set in eventText
-				        $scope.addEvent = function () {
-				            $scope.calendar.push({ d: new Date(), text: $scope.eventText });
-				        };
-				        // alert the selected event - onEventSelect handler
-				        $scope.eventSelected = function (e, event, d, inst) {
-				            alert(event.text + ' selected');
-				        };
 					
+					$scope.settings = {
+				        theme: 'mobiscroll',
+				        lang:'zh',
+				  	}	
+				  	
+				  	$scope.calendar = [
+			            { d: new Date(2013, 10, 13), text: 'My Big Event' },
+			            { d: '12/25', text: 'Christmas' }
+			        ];
+			        $scope.eventText = '';
+			        // push an event to the calendar for today with the text set in eventText
+			        $scope.addEvent = function () {
+			            $scope.calendar.push({ d: new Date(), text: $scope.eventText });
+			        };
+			        // alert the selected event - onEventSelect handler
+			        $scope.eventSelected = function (e, event, d, inst) {
+			            alert(event.text + ' selected');
+			        };
+			        
+			        
+			        $scope.settings = {
+			            theme: 'mobiscroll',
+			            lang: 'zh',
+			            display: 'bottom',
+			            defaultValue: new Date(2001,11,05),
+			        };
 				})
 		</script>
 	</head>
@@ -62,12 +68,13 @@
 	<body>
 		<div ng-controller="myController">
 			<input mobiscroll-time="settingff"/>
-			
 			<input ng-model="mycalendar" mobiscroll-calendar="settings"/>
+			
 			<input id="calendar" ng-model="calendar" mobiscroll-event-calendar="{ onEventSelect: eventSelected }" type="text"/>
 		    <input id="eventText" ng-model="eventText" type="text" />
 		    <button type="button" ng-click="addEvent()">Add Event</button>
 		    
+		    <input ng-model="mydate" mobiscroll-date="settings" mobiscroll-instance="demo" placeholder="Please Select..." />
 		</div>
 	</body>
 

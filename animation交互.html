@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css"/>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		
+		<script type="text/javascript">
+			angular.module('app',['ionic'])
+				.controller('myController',function($scope){
+					//内容
+					$scope.change = true;
+				})
+		</script>
+	</head>
+	<body ng-controller="myController">
+		<div ng-class="{true:'lace',false:'laceBig'}[change]" ng-click="change = !change"></div>
+	</body>
+	<style type="text/css">
+		.lace{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		
+		.laceBig{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			-webkit-animation: bounce-button-in 1s forwards;
+		}
+		@-webkit-keyframes bounce-button-in {
+		  0% {
+		    -webkit-transform: scale(0.2);
+		  }
+		  50%{
+		  	-webkit-transform: scale(1);
+		  }
+		  100% {
+		    -webkit-transform: scale(0.5);
+		  }
+		}
+		
+		
+		
+		/*.laceBig{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			-webkit-animation: bounce-button-in 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+		}
+		
+		@-webkit-keyframes bounce-button-in {
+		  0% {
+		    -webkit-transform: translateZ(0) scale(0);
+		            transform: translateZ(0) scale(0);
+		  }
+		  100% {
+		    -webkit-transform: translateZ(0) scale(0.7);
+		            transform: translateZ(0) scale(0.7);
+		  }
+		}*/
+	</style>
+</html>
