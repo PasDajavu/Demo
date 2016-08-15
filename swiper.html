@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css"/>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		<!-- Link Swiper's CSS -->
+	    <link rel="stylesheet" href="lib/swiper/swiper.min.css"/>
+	    <script src="jquery/jquery.min.js"></script>
+	    <script src="lib/swiper/swiper.min.js"></script>
+		
+		<script type="text/javascript">
+			angular.module('app',['ionic'])
+				.controller('myController',function($scope){
+					var swiper = new Swiper('.swiper-container', {
+				        pagination: '.swiper-pagination',
+				        effect: 'coverflow',
+				        grabCursor: true,
+				        centeredSlides: true,
+				        slidesPerView: 'auto',
+				        coverflow: {
+				            rotate: 50,
+				            stretch: 0,
+				            depth: 100,
+				            modifier: 1,
+				            slideShadows : true
+				        }
+				    });
+				    
+				})
+		</script>
+	</head>
+	<body ng-controller="myController">
+		<!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/1)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/2)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/3)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/4)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/5)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/6)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/7)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/8)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/9)"></div>
+	            <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/10)"></div>
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+	    </div>
+	</body>
+	<style>
+    .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 200px;
+        height: 150px;
+    }
+    </style>
+</html>
