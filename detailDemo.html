@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css"/>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		
+		<script type="text/javascript">
+			angular.module('app',['ionic'])
+				.controller('myController',function($scope){
+					
+				})
+		</script>
+	</head>
+	<body ng-controller="myController">
+		<ion-content style="background: #EEEEEE;">
+			<div class="detail_outer">
+				<div class="detail_inner">
+					<div class="detail_title">保险合同回执</div>
+					
+					<div class="detail_divMargin">
+						保单号：<span class="detail_span">13082031002</span>
+					</div>
+					
+					<div class="detail_divMargin">
+						尊敬的<span class="detail_span">PasDajavu</span>先生
+					</div>
+					
+					<div class="detail_divMargin">
+						温馨提示：保险合同是由保险单、现金价值表、投保提示书（一年期以上产品适用）、投保资料、保险条款、产品说明书（分红或投连产品适用）等资料共同构成。本合同的回执签收日期以您首次签收日期为准，请勿重复递交。
+					</div>
+					
+					<div class="detail_divMargin">
+						您收到保险合同后，请认真核对并确认如下内容：
+					</div>
+					
+					<div class="detail_divMargin detail_statement">
+						<span class="detail_span">1、</span><span style="padding-right: 35px;">本保险合同无缺页、遗漏。</span>
+						<span class="detail_span">2、</span><span style="padding-right: 35px;">本保险合同内容与您的投保要求一致。</span>
+						<span class="detail_span">3、</span><span style="padding-right: 35px;">本保险合同内容与您的投保要求一致。</span>
+					</div>
+					
+					<div class="detail_divMargin">另外，请您仔细阅读本合同保险条款以及其他资料，注意您在犹豫期内享有的权利（犹豫期从您收到本保险合同之日起算）</div>
+					
+					<div class="detail_divMargin">为确保您的保单权益，请及时拨打本公司服务电话、登陆网站或至公司服务网点进行查询。公司客户服务热线（95359)，查询网址（ WWW. icbc-axa.com),服务网点地址见合同内页（分支机构名录）。</div>
+					
+					<div class="detail_divMargin">如您对上述内容检查无误并认可，请您在下方亲笔签署确认。</div>
+					
+					<hr size=1 style="color: #E07173;border-style:dashed ;width:100%">
+					
+					<div class="detail_divMargin">本人已收到贵公司的保险合同（保单号：<span class="detail_span">13082031002</span>)，贵公司已向本人说明了保险合同的内容，包括特别提示并说明了保险责任、责任免除等免除保险公司责任的条款，本人知悉并认可本保险合同的全部内容。</div>
+					
+					<div class="detail_statement" style="margin: 35px 0px 25px 15px;">
+						<span style="padding-right: 10px;">投保人签字</span><span class="detail_span" style="padding-right: 80px;">PasDajavu</span>
+						<span style="padding-right: 10px;">签收时间</span><span class="detail_span">2016-5-30</span>
+					</div>
+					
+					<div class="detail_but">
+						<button class="button button-small button-block" style="background: red;color: white;height: 35px;font-size: 15px;">完成</button>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+</html>
+<style type="text/css">
+	.detail_outer{
+		width: 100%;
+		margin: 10px;
+		background: white;
+		font-family: "微软雅黑";
+	}
+	.detail_inner{
+		padding: 15px 0px;
+		width: 86%;
+		margin: auto;
+		min-width: 600px;
+	}
+	
+	.detail_divMargin{
+		margin: 15px;
+	}
+	.detail_span{
+		color: #B70003;
+		font-size: 15px;
+	}
+	
+	.detail_title{
+		color: #B70003;	
+		text-align: center;
+		font-size: 22px;
+		font-family: "黑体";
+		font-weight: 700px;
+	}
+	.detail_statement span{
+		display: inline-block;
+	}
+	.detail_but{
+		width: 150px;
+		margin: auto;
+	}
+</style>

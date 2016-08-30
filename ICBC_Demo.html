@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css"/>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+		
+		<script type="text/javascript">
+			angular.module('app',['ionic'])
+				.controller('myController',function($scope){
+					$scope.tabClecked = 1;
+					//默认为投保人
+					$scope.navClecked = 'insure';
+				})
+		</script>
+	</head>
+	<body ng-controller="myController">
+		<ion-content style="background: rgb(187,174,138);">
+			<div class="icbc_header">
+				<div class="icbc_header_detail">
+					<span>ICBC工银安盛人寿</span>
+				</div>
+			</div>
+			<div class="parent">
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 1}" ng-click="tabClecked = 1">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">客户信息</div>
+				</div>
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 2}" ng-click="tabClecked = 2">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">产品计划</div>
+				</div>
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 3}" ng-click="tabClecked = 3">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">客户告知</div>
+				</div>
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 4}" ng-click="tabClecked = 4">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">转账授权</div>
+				</div>
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 5}" ng-click="tabClecked = 5">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">问卷调查</div>
+				</div>
+				<div class="son" ng-class="{'tabClecked':tabClecked >= 6}" ng-click="tabClecked = 6">
+					<div class="icbc_tab"><i class="ion-ionic"></i></div>
+					<div style="">完成投保</div>
+				</div>
+			</div>
+			<div class="inputs">
+				<div class="icbc_nav">
+					<div class="icbc_nav_item" ng-class="{'icbc_nav_clecked':navClecked == 'insure'}" ng-click="navClecked = 'insure'">
+						<div class="icbc_nav_itemDetail">
+							<i class="ion-android-contact"></i>
+							投保人信息
+						</div>
+					</div>
+					<div class="icbc_nav_item"  ng-class="{'icbc_nav_clecked':navClecked == 'beibao'}" ng-click="navClecked = 'beibao'" style="background: #D8D8D8;">
+						<div class="icbc_nav_itemDetail">
+							<i class="ion-android-contact"></i>
+							被保人信息
+						</div>
+					</div>
+					<div class="icbc_nav_item" ng-class="{'icbc_nav_clecked':navClecked == 'shouyi'}" ng-click="navClecked = 'shouyi'">
+						<div class="icbc_nav_itemDetail">
+							<i class="ion-android-contact"></i>
+							受益人信息
+						</div>
+					</div>
+				</div>
+				<div class="row" style="width: 80%;margin: 0 auto;height: 550px;">
+					<div class="col">
+						<div class="list">
+							<div class="item icbc_itemText item-input item-icon-right" style="padding-right: 20px !important;">
+								<span class="important">*</span>姓名
+								<input type="text" class="text-right">
+								<i class="icon ion-ios-search"></i>
+							</div>
+							<div class="item icbc_item item-toggle">
+								性别
+								<label class="toggle toggle-assertive" style="top: 3px;">
+									<input type="checkbox">
+									<div class="track">
+										<span style="font-weight:bold;position: relative;left: 2px;top: 3px;color:white;">男</span>
+										<span style="font-weight:bold;position: relative;left: 7px;top: 3px;color:rgb(218,107,18);">女</span>
+										<div class="handle"></div>
+									</div>
+								</label>
+							</div>
+							<label class="item icbc_itemText item-input">
+								<span class="important">*</span>姓名
+								<input type="text" class="text-right">
+							</label>
+							<label class="item icbc_item item-select">
+								<span>产品名片</span>
+								<select>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</label>
+							<label class="item icbc_item item-select">
+								<span>产品名片</span>
+								<select>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+								<select>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+								<select>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+								</select>
+							</label>
+							<label class="item icbc_itemText item-input">
+								<span class="important">*</span>姓名
+								<input type="text" class="text-right">
+							</label>
+						</div>
+					</div>
+					<div class="col"></div>
+					<div class="col"></div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+</html>
+<style type="text/css">
+	.icbc_header{
+		width: 99%;
+		margin: auto;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		height: 64px;
+		background: rgb(184,0,7);
+		box-shadow:0 0 6px #6E6E6E;
+		border: 2px solid #B3B3B3;
+		border-top-color: rgb(184,0,7);
+	}
+	.icbc_header_detail{
+		margin: 20px 0px 0px 50px;
+	}
+	.icbc_header_detail span{
+		color: white;
+		font-size: 30px;
+		letter-spacing: 1px;
+		font-family: '黑体';
+		font-weight: 900;
+	}
+
+	.parent{
+		width: 80%;
+		height: 60px;
+		margin: auto;
+		display: -webkit-flex;
+		justify-content:space-between;
+		text-align: center;
+		margin-top: 10px;
+	}
+	
+	.tabClecked{
+		background:linear-gradient(45deg,#DE7676,#B80007,#B80007) !important;
+		color: white !important;
+	}
+	.tabClecked:after{
+	   background:#B80007 !important;
+	}
+	
+	.son{
+		color: rgb(71,69,70);
+		width: 14%;
+		position: relative;
+		background-color:#D8D8D8;
+		flex: none;
+		box-shadow: 4px 0px 4px #808080;
+		border-radius: 2px;
+	}
+	.son:after{
+		left: 100%;
+		top: 50%;
+		height: 22px;
+		margin-top: -11px;
+		width: 22px;
+		margin-left: -12px;
+		border: solid transparent;
+		content: "";
+		position: absolute;
+		pointer-events: none;
+		background-color:#D8D8D8;
+		box-shadow: 2px 3px 3px #808080;
+		transform: rotate(-45deg);
+	   -webkit-transform:rotate(-45deg);
+	   -moz-transform:rotate(-45deg);
+	}
+	.icbc_tab{
+		font-size: 26px;
+		margin-top: 7px;
+	}
+	.inputs{
+		background: white;
+		box-shadow: 0px -1px 15px #A7A7A7;
+		z-index: 100;
+		position: relative;
+		top: -0.5px;
+	}
+	.important{
+		color: red;
+	}
+	
+	.icbc_nav{
+		width: 40px;
+		height: 580px;
+		position: absolute;
+		top: -15px;
+		left: 30px;
+		box-shadow: 3px 0px 4px #A7A7A7;
+	}
+	.icbc_nav:before{
+		position: absolute;
+		left: 100%;
+		content: " ";
+		pointer-events: none;
+		border-left-color: red;
+		border-width:7.5px 7.5px 7.5px 7.5px;
+        border-style:solid;
+        border-color:transparent transparent rgb(71,71,71) rgb(71,71,71);
+	}
+	.icbc_nav:after{
+		position: absolute;
+		bottom: 0px;
+		left: 100%;
+		content: " ";
+		pointer-events: none;
+		border-left-color: red;
+		border-width:7.5px 7.5px 7.5px 7.5px;
+        border-style:solid;
+        border-color:rgb(71,71,71) transparent transparent rgb(71,71,71) ;
+	}
+	.icbc_nav_item{
+		height: 33.33%;
+		color: #454545;
+		background: #EAEAEA;
+	}
+	.icbc_nav_clecked{
+		background: rgb(185,0,12) !important;
+		color: white !important;
+	}
+	
+	.icbc_nav_itemDetail{
+		padding: 30px 9px 0px 9px;
+		font-size: 19px;
+		font-family: "微软雅黑";
+		letter-spacing: 1px;
+		writing-mode:tb-rl;
+	}
+	
+	.icbc_item{
+		padding: 8px 8px !important;
+		margin: 14px 0px !important;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+	.icbc_itemText{
+		padding: 2px 8px !important;
+		margin: 14px 0px !important;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+</style>

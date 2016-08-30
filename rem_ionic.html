@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="stylesheet" href="ionic/release/css/ionic.css" />
+		<script src="jquery/jquery.min.js"></script>
+		<script src="ionic/release/js/ionic.bundle.min.js"></script>
+
+		<script type="text/javascript">
+			angular.module('app', ['ionic'])
+				.controller('myController', function($scope) {
+					!(function(doc, win) {
+						console.log(14 * (doc.documentElement.clientWidth / 320))
+						var docEle = doc.documentElement;
+						evt = "onorientationchange" in window ? "orientationchange" : "resize";
+						fn = function() {
+							var width = docEle.clientWidth;
+							width && (docEle.style.fontSize = 14 * (width / 320) + "px");
+						};
+						fn();
+						win.addEventListener(evt, fn, false);
+					}(document, window));
+				})
+		</script>
+	</head>
+
+	<body ng-controller="myController">
+		<ion-header-bar class="bar-calm">
+			<h1 class="title">Title!</h1>
+		</ion-header-bar>
+		<ion-content class="has-header" style="background: rgb(241,242,247);">
+			<div class="rem_header">
+				<div class="rem_header_avatar"></div>
+				<div class="rem_header_name">PasDajavu</div>
+			</div>
+			<div class="rem_row" style="margin-top: 7px;">
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col rem_col_noBorder">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+			</div>
+			
+			<div class="rem_row rem_row_bottomBorder">
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+				<div class="rem_col rem_col_noBorder">
+					<div class="rem_col_img"><i class="ion-ionic"></i></div>
+					<div class="rem_col_detail">蚂蚁花呗</div>
+				</div>
+			</div>
+		</ion-content>
+	</body>
+</html>
+<style type="text/css">
+	.rem_header{
+		width: 100%;
+		height: 7.2rem;
+		padding-top: 1rem;
+		background:rgb(29,188,242);
+		
+	}
+	.rem_header_avatar{
+		width: 4rem;
+		height: 4rem;
+		border-radius: 4rem;
+		margin: 0px auto;
+		background: black;
+	}
+	.rem_header_name{
+		font-size: 1rem;
+		padding: 0.4rem 0rem;
+		color: white;
+		text-align: center;
+	}
+	
+	.rem_row{
+		display: -webkit-box;
+	    display: -webkit-flex;
+	    -webkit-align-items: center;
+	    align-items: center;
+		width: 22.8rem;
+		margin: 0px auto;
+		background: white;
+	}
+	.rem_col{
+		-webkit-flex: none;
+   		flex: none;
+		width: 5.7rem;
+		height: 5.7rem;
+		border-top: 1px solid rgb(231,231,231);
+		border-right: 1px solid rgb(231,231,231);
+		text-align: center;
+	}
+	.rem_row_bottomBorder{
+		border-bottom: 1px solid rgb(231,231,231);
+	}
+	.rem_col_noBorder{
+		border-right: none;
+	}
+	.rem_col_img{
+		padding-top: 1.2rem;
+		font-size: 2rem;
+	}
+	.rem_col_detail{
+		padding-top: 0.1rem;
+		font-size: 0.6rem;
+	}
+</style>
